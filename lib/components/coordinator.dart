@@ -6,13 +6,13 @@ class CoordinatorLayout extends StatefulWidget {
   CoordinatorLayout({
     @required this.headerMinHeight,
     @required this.headerMaxHeight,
-    @required this.header,
+    @required this.headers,
     this.body,
     this.scrollController,
     this.snap = true,
     Key key,
   }) : super(key: key);
-  final Widget header;
+  final List<Widget> headers;
   final Widget body;
   final ScrollController scrollController;
 
@@ -97,10 +97,8 @@ class CoordinatorLayoutState extends State<CoordinatorLayout> {
       child: NestedScrollView(
         controller: scrollController,
         headerSliverBuilder: (context, innerBoxIsScrolled) {
-          List<Widget> children = [
-            SliverSafeArea(top: false, sliver: widget.header),
-          ];
-          return children;
+          return widget.headers;
+          ;
         },
         body: widget.body,
       ),
