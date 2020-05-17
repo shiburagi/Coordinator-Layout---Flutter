@@ -1,5 +1,8 @@
 # coordinator_layout
 
+[![pub package](https://img.shields.io/pub/v/drawerbehavior.svg)](https://pub.dartlang.org/packages/coordinator_layout)
+
+
 ## Example
 ```dart
 CoordinatorLayout(
@@ -8,13 +11,7 @@ CoordinatorLayout(
     headers: [
         SliverCollapsingHeader(
             builder: (context, offset, diff) {
-                return AppBar(
-                title: Text("Home"),
-                bottom: PreferredSize(
-                    preferredSize: Size.fromHeight(diff),
-                    child: Container(color: Colors.white),
-                ),
-                );
+                return ...;
             },
         ),
     ],
@@ -36,13 +33,7 @@ CoordinatorLayout(
                 top: false,
                 sliver: SliverCollapsingHeader(
                 builder: (context, offset, diff) {
-                    return AppBar(
-                    title: Text("Home"),
-                    bottom: PreferredSize(
-                        preferredSize: Size.fromHeight(diff),
-                        child: Container(color: Colors.white),
-                    ),
-                    );
+                    return ...;
                 },
                 ),
             ),
