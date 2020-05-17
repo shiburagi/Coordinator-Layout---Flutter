@@ -4,7 +4,7 @@
 
 a Library contains widget/layout to handle collapsing header behavior
 
-![Alt Text](https://github.com/shiburagi/Coordinator-Layout/blob/preview/gif.gif)
+![Alt Text](https://raw.githubusercontent.com/shiburagi/Coordinator-Layout/master/preview/gif1.gif)
 
 
 ## Example
