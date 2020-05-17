@@ -56,10 +56,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    double headerMinHeight =
+        kToolbarHeight + MediaQuery.of(context).padding.top;
     return Scaffold(
       body: CoordinatorLayout(
-        headerMaxHeight: 200,
-        headerMinHeight: kToolbarHeight + MediaQuery.of(context).padding.top,
+        headerMaxHeight: headerMinHeight + 80,
+        headerMinHeight: headerMinHeight,
         headers: [
           Builder(builder: (context) {
             return SliverOverlapAbsorber(
@@ -68,11 +70,39 @@ class _MyHomePageState extends State<MyHomePage> {
                 top: false,
                 sliver: SliverCollapsingHeader(
                   builder: (context, offset, diff) {
-                    return AppBar(
-                      title: Text("Home"),
-                      bottom: PreferredSize(
-                        preferredSize: Size.fromHeight(diff),
-                        child: Container(color: Colors.white),
+                    return Card(
+                      margin: EdgeInsets.only(bottom: 0),
+                      child: SingleChildScrollView(
+                        physics: NeverScrollableScrollPhysics(),
+                        child: Stack(
+                          children: <Widget>[
+                            Opacity(
+                              opacity: offset,
+                              child: Container(
+                                margin: EdgeInsets.only(
+                                    top: headerMinHeight * (offset)),
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 32, vertical: 8),
+                                child: Row(
+                                  children: <Widget>[
+                                    Expanded(
+                                      flex: 1,
+                                      child: Text("Point : 30,200"),
+                                    ),
+                                    FloatingActionButton.extended(
+                                      backgroundColor: Colors.green,
+                                      onPressed: () {},
+                                      label: Text("View"),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            AppBar(
+                              title: Text("Home"),
+                            ),
+                          ],
+                        ),
                       ),
                     );
                   },

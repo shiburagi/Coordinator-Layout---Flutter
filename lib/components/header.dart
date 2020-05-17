@@ -48,7 +48,7 @@ class SliverCollapseHeaderDelegate extends SliverPersistentHeaderDelegate {
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     double diffPixel = (this.maxExtent - this.minExtent);
     double offset = shrinkOffset / diffPixel;
-    return builder(context, min(1, offset), diffPixel);
+    return builder(context, 1.0 - min(1, offset), diffPixel);
   }
 
   @override

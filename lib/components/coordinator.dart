@@ -1,5 +1,3 @@
-import 'package:coordinator_layout/components/header.dart';
-import 'package:coordinator_layout/coordinator_layout.dart';
 import 'package:flutter/material.dart';
 
 class CoordinatorLayout extends StatefulWidget {
@@ -98,7 +96,6 @@ class CoordinatorLayoutState extends State<CoordinatorLayout> {
         controller: scrollController,
         headerSliverBuilder: (context, innerBoxIsScrolled) {
           return widget.headers;
-          ;
         },
         body: widget.body,
       ),

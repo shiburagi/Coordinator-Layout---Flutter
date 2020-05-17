@@ -1,6 +1,6 @@
 name: coordinator_layout
-description: Widget to handle collapsing header behavior
-version: 0.0.2+2
+description: a Library contains widget/layout to handle collapsing header behavior
+version: 0.0.5+5
 homepage: https://github.com/shiburagi/Drawer-Behavior-Flutter
 
 
@@ -10,10 +10,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^0.1.3
 
 dev_dependencies:
   flutter_test:
