@@ -1,3 +1,6 @@
+# 0.0.6+6
+* Fixed animateTo bug
+
 # 0.0.5+5
 * invert offset value
 * add proper example
