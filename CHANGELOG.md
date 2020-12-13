@@ -1,3 +1,6 @@
+# 0.0.6+7
+* Update reademe.md
+  
 # 0.0.6+6
 * Fixed animateTo bug
 
