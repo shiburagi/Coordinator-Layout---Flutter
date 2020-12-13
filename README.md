@@ -1,6 +1,6 @@
 # coordinator_layout
 
-[![pub package](https://img.shields.io/pub/v/drawerbehavior.svg)](https://pub.dartlang.org/packages/coordinator_layout)
+[![pub package](https://img.shields.io/pub/v/coordinator_layout.svg)](https://pub.dartlang.org/packages/coordinator_layout)
 
 a Library contains widget/layout to handle collapsing header behavior
 
