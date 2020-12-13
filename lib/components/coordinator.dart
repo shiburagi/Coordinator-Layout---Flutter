@@ -66,32 +66,37 @@ class CoordinatorLayoutState extends State<CoordinatorLayout> {
     return buildNestedScrollView();
   }
 
+  Future<void> scrollAnimateToRunning;
+
+  Future toggle(double range) async {
+    if (scrollController.offset > 0 && scrollController.offset < range) {
+      if (scrollAnimateToRunning != null) {
+        await scrollAnimateToRunning;
+      }
+
+      if (scrollController.offset < range / 2) {
+        scrollAnimateToRunning = scrollController.animateTo(0,
+            duration: Duration(milliseconds: 100), curve: Curves.ease)
+          ..then((value) => scrollController.jumpTo(0));
+      } else if (scrollController.offset < range) {
+        scrollAnimateToRunning = scrollController.animateTo(range,
+            duration: Duration(milliseconds: 100), curve: Curves.ease)
+          ..then((value) => scrollController.jumpTo(range));
+      }
+    }
+  }
+
+  bool _handleScrollNotification(scrollNotification) {
+    if (scrollNotification is ScrollEndNotification) {
+      double range = widget.headerMaxHeight - widget.headerMinHeight;
+      toggle(range);
+    }
+    return false;
+  }
+
   Widget buildNestedScrollView() {
     return NotificationListener<ScrollNotification>(
-      onNotification: widget.snap
-          ? (scrollNotification) {
-              if (scrollNotification is ScrollEndNotification) {
-                double range = widget.headerMaxHeight - widget.headerMinHeight;
-                if (scrollController.offset > 0 &&
-                    scrollController.offset < range) {
-                  if (scrollController.offset < range / 2) {
-                    scrollController
-                        .animateTo(0,
-                            duration: Duration(milliseconds: 100),
-                            curve: Curves.ease)
-                        .then((value) => scrollController.jumpTo(0));
-                  } else if (scrollController.offset < range) {
-                    scrollController
-                        .animateTo(range,
-                            duration: Duration(milliseconds: 100),
-                            curve: Curves.ease)
-                        .then((value) => scrollController.jumpTo(range));
-                  }
-                }
-              }
-              return false;
-            }
-          : null,
+      onNotification: widget.snap ? _handleScrollNotification : null,
       child: NestedScrollView(
         controller: scrollController,
         headerSliverBuilder: (context, innerBoxIsScrolled) {
