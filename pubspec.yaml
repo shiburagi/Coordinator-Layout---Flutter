@@ -1,6 +1,6 @@
 name: coordinator_layout
 description: a Library contains widget/layout to handle collapsing header behavior
-version: 0.0.5+5
+version: 0.0.6+8
 homepage: https://github.com/shiburagi/Drawer-Behavior-Flutter
 
 
