@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:coordinator_layout/coordinator_layout.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        useMaterial3: false,
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
@@ -23,7 +22,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({super.key, required this.title});
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -56,8 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    double headerMinHeight =
-        kToolbarHeight + MediaQuery.of(context).padding.top;
+    double headerMinHeight = kToolbarHeight + MediaQuery.of(context).padding.top;
     return Scaffold(
       body: CoordinatorLayout(
         headerMaxHeight: headerMinHeight + 80,
@@ -79,10 +77,8 @@ class _MyHomePageState extends State<MyHomePage> {
                             Opacity(
                               opacity: offset,
                               child: Container(
-                                margin: EdgeInsets.only(
-                                    top: headerMinHeight * (offset)),
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 32, vertical: 8),
+                                margin: EdgeInsets.only(top: headerMinHeight * (offset)),
+                                padding: EdgeInsets.symmetric(horizontal: 32, vertical: 8),
                                 child: Row(
                                   children: <Widget>[
                                     Expanded(
@@ -112,9 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
           })
         ],
         body: ListView.builder(
-            itemCount: 1,
-            itemBuilder: (context, index) =>
-                Container(height: null, child: buildBody(context))),
+            itemCount: 1, itemBuilder: (context, index) => Container(height: null, child: buildBody(context))),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,

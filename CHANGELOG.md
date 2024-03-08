@@ -1,3 +1,12 @@
+# 1.0.1
+* Upgrade SDK
+
+# 1.0.0+1
+* Migrate to null-safety
+
+# 0.0.6+8
+* Update reademe.md
+
 # 0.0.6+7
 * Update reademe.md
   
