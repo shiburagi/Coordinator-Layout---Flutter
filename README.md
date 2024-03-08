@@ -10,8 +10,8 @@ a Library contains widget/layout to handle collapsing header behavior
 ## Example
 ```dart
 CoordinatorLayout(
-    maxHeight: 200,
-    minHeight: kToolbarHeight + MediaQuery.of(context).padding.top,
+    headerMaxHeight: 200,
+    headerMinHeight: kToolbarHeight + MediaQuery.of(context).padding.top,
     headers: [
         SliverCollapsingHeader(
             builder: (context, offset, diff) {
