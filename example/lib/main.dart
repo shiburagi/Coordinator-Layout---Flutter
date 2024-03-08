@@ -111,7 +111,10 @@ class _MyHomePageState extends State<MyHomePage> {
             );
           })
         ],
-        body: Container(height: null, child: buildBody(context)),
+        body: ListView.builder(
+            itemCount: 1,
+            itemBuilder: (context, index) =>
+                Container(height: null, child: buildBody(context))),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
